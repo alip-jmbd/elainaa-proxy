@@ -79,7 +79,7 @@ import gatepass from '@elainaa/proxy';
 
 try {
   // Pilih wilayah 'us', Elaina akan coba beberapa server acak jika perlu (default 2x coba lagi)
-  const html = await gatepass.auto('https://hanime.tv', { region: 'us', retries: 3 });
+  const html = await gatepass.auto('https://example.com', { region: 'us', retries: 3 });
   console.log('Berhasil didapatkan oleh sihir otomatis Elaina!');
 } catch (error) {
   console.error('Elaina gagal setelah beberapa kali mencoba:', error);

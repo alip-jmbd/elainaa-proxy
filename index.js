@@ -27,7 +27,7 @@ async function auto(url, options = {}) {
             lastError = error;
         }
     }
-    throw new Error(`Failed after ${config.retries} retries. Last error: ${lastError.message}`);
+    throw new Error(`Failed after ${config.retries} Retries. Last error: ${lastError.message}`);
 }
 
 function createGatePass(config) {

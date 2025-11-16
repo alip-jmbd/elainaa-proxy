@@ -53,7 +53,7 @@ async function performProxyFetch(url, options = {}, signal) {
     });
 
     if (!finalResponse.ok) {
-        throw new Error(`Failed to fetch final content. Status: ${finalResponse.status}`);
+        throw new Error(`Failed to fetch final content. Status : ${finalResponse.status}`);
     }
 
     return finalResponse;

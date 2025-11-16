@@ -1,7 +1,7 @@
 {
   "name": "@elainaa/proxy",
   "version": "1.0.0",
-  "description": "Sebuah pustaka proxy ajaib untuk melewati batasan web dengan kekuatan sihir Elaina!",
+  "description": "Sebuah library proxy ajaib untuk melewati batasan web dengan kekuatan sihir Elaina!",
   "main": "index.js",
   "type": "module",
   "scripts": {
