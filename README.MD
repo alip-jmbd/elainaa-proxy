@@ -2,10 +2,10 @@
   <img src="https://cdn.nefusoft.cloud/0rK13.png" alt="Elaina the Ashen Witch" width="200"/>
 </div>
 
-<h1 align="center">✨ @elainaa/proxy - Gerbang Sihir Anda ke Dunia Web! ✨</h1>
+<h1 align="center">✨ @elainaa/proxy ✨</h1>
 
 <p align="center">
-  <em>"Betul sekali, ini aku, Penyihir Abu-abu, Elaina. Dengan sedikit sihir dariku, tak ada lagi situs yang bisa menghalangimu."</em>
+  A lightweight yet powerful proxy fetching library to bypass web restrictions, inspired by Elaina.
 </p>
 
 <p align="center">
@@ -15,88 +15,85 @@
 
 ---
 
-Selamat datang, petualang web! 🧙‍♀️ `@elainaa/proxy` adalah sebuah pustaka sihir yang dirancang untuk membantu Anda melewati batasan-batasan di internet. Dengan tongkat sihir dari Nefu dan kekuatan Elaina, Anda dapat mengambil data dari situs manapun seolah-olah Anda sedang terbang bebas di atasnya.
+`@elainaa/proxy` is a modern, promise-based HTTP client proxy. It's designed to help you fetch content from websites that might be otherwise inaccessible by routing requests through a pool of web proxy servers.
 
-### 🌟 Fitur-Fitur Ajaib
+### 🚀 Features
 
-*   **Sangat Mudah Digunakan**: Cukup berikan mantra (URL), dan sihir akan bekerja.
-*   **Fleksibel**: Pilih dari berbagai server proxy di berbagai wilayah (US & EU).
-*   **Tangguh**: Dilengkapi mode `.auto()` yang secara cerdas mencoba ulang jika satu mantra gagal.
-*   **Beragam Gaya Mantra**: Menyediakan beberapa desain API, dari yang paling simpel hingga yang paling canggih, sesuaikan dengan gaya sihir Anda!
+*   **Simple & Intuitive API**: Get started in seconds with a clean and modern API.
+*   **Flexible Server Selection**: Manually pick from a wide range of US and EU servers.
+*   **Built-in Retry Mechanism**: Features a smart `.auto()` mode that automatically retries with a different server on failure.
+*   **Multiple Usage Patterns**: Supports simple function calls, a client factory pattern, and even a drop-in replacement for `fetch`.
 
-### 🪄 Instalasi
+### 📦 Installation
 
-Pasang tongkat sihir ini ke dalam proyek Anda melalui NPM:
+Install the package using NPM or your favorite package manager:
 
 ```bash
 npm install @elainaa/proxy
 ```
 
-### 📖 Buku Mantra (Cara Penggunaan)
+### 📖 API Reference & Usage
 
-Elaina telah menyiapkan beberapa cara untuk merapal mantra, pilihlah yang paling sesuai untuk Anda!
+Here are the different ways you can use the library, from simplest to most advanced.
 
-#### 🔮 Pilihan 1 & 2: Penggunaan Langsung (Fungsi dengan Opsi)
+#### 1. Basic Usage (`gatepass`)
 
-Cara paling cepat dan langsung. Cukup impor dan panggil. Anda juga bisa memberikan opsi untuk memilih server spesifik.
+The default export is a simple function that takes a URL and an optional options object. It returns the response body as a string.
 
 ```javascript
 import gatepass from '@elainaa/proxy';
 
-// Penggunaan paling dasar (otomatis menggunakan server US)
+// 1. Simple fetch (uses default us1 server)
 const html1 = await gatepass('https://example.com');
-console.log('Konten dari server default:', html1.substring(0, 100));
 
-// Menggunakan server spesifik dari Eropa (EU server #15)
+// 2. Fetch with specific server options
 const options = { region: 'eu', serverId: 15 };
 const html2 = await gatepass('https://example.com', options);
-console.log('Konten dari server EU15:', html2.substring(0, 100));
 ```
 
-#### 🔮 Pilihan 3: Pabrik Klien (The Client Factory)
+#### 2. Client Factory (`createGatePass`)
 
-Untuk para penyihir tingkat lanjut! Buat sebuah "klien" yang sudah dikonfigurasi untuk digunakan berulang kali. Sangat rapi dan terstruktur.
+For applications making multiple requests with the same configuration, you can create a reusable client instance.
 
 ```javascript
 import { createGatePass } from '@elainaa/proxy';
 
-// Buat klien sihir khusus untuk server US #7
+// Create a client configured for the US server #7
 const usClient = createGatePass({ region: 'us', serverId: 7 });
 
-// Gunakan klien ini untuk berbagai mantra
+// Reuse the client for multiple fetches
 const page1 = await usClient.fetch('https://example.com/page1');
 const page2 = await usClient.fetch('https://example.com/page2');
-
-console.log('Dua halaman berhasil diambil dengan klien yang sama!');
 ```
 
-#### 🔮 Pilihan 4: Mode Otomatis Cerdas (The "Smart" Auto Mode)
+#### 3. Smart Auto Mode (`gatepass.auto`)
 
-Biarkan Elaina yang memilih server terbaik untuk Anda! Jika satu server gagal, dia akan otomatis mencoba server lain. Sangat kuat dan dapat diandalkan.
+Let the library handle server selection and retries for you. It will randomly pick a server from the specified region and retry on failure.
 
 ```javascript
 import gatepass from '@elainaa/proxy';
 
 try {
-  // Pilih wilayah 'us', Elaina akan coba beberapa server acak jika perlu (default 2x coba lagi)
-  const html = await gatepass.auto('https://example.com', { region: 'us', retries: 3 });
-  console.log('Berhasil didapatkan oleh sihir otomatis Elaina!');
+  // Automatically select a random US server, with up to 3 retries on failure
+  const options = { region: 'us', retries: 3 };
+  const html = await gatepass.auto('https://hanime.tv', options);
+  console.log('✅ Success!');
 } catch (error) {
-  console.error('Elaina gagal setelah beberapa kali mencoba:', error);
+  console.error('❌ Failed after multiple attempts:', error);
 }
 ```
 
-#### 🔮 Pilihan 5: Pengganti `fetch` (The Fetch Replacement)
+#### 4. Drop-in Fetch Replacement (`createProxyFetch`)
 
-Untuk Anda yang sudah terbiasa dengan mantra `fetch` standar. Buat versi `fetch` yang sudah disuntik dengan sihir proxy.
+For maximum flexibility, create a proxy-wrapped `fetch` function that behaves like the standard Web API `fetch`. This is useful for integrating with existing libraries that expect a `fetch`-compatible function.
 
 ```javascript
 import { createProxyFetch } from '@elainaa/proxy';
 
-// Buat fungsi fetch versi proxy yang menargetkan server US #1
+// Create a proxied fetch function targeting US server #1
 const nefuFetch = createProxyFetch({ region: 'us', serverId: 1 });
 
-// Gunakan persis seperti fetch standar!
+// Use it exactly like the standard fetch API
 const response = await nefuFetch('https://example.com');
 
 if (response.ok) {
@@ -106,33 +103,26 @@ if (response.ok) {
 }
 ```
 
-### 📜 Opsi Konfigurasi
+### ⚙️ Configuration Options
 
-Objek `options` yang bisa Anda gunakan:
+The `options` object can contain the following properties:
 
-*   `region` (string): Wilayah server. Pilihan: `'us'` (default) atau `'eu'`.
-*   `serverId` (number): Nomor server dari 1 hingga 20. Default: `1`.
-*   `retries` (number): Jumlah percobaan ulang untuk mode `.auto()`. Default: `2`.
+| Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `region` | `string` | `'us'` | The server region. Can be `'us'` or `'eu'`. |
+| `serverId` | `number` | `1` | The server ID number, from 1 to 20. |
+| `retries` | `number` | `2` | Number of retries for `.auto()` mode. |
+
+### 🌐 Available Servers
+
+You can choose any combination of the following regions and server IDs.
+
+| Region US (`us`) | Region EU (`eu`) |
+| :--- | :--- |
+| US1 - US20 | EU1 - EU20 |
 
 ---
 
 <p align="center">
-  Sekarang, pergilah dan jelajahi dunia web tanpa batas! Jika Anda tersesat, ingatlah petualangan Elaina.
-</p>````
-
-### Langkah Terakhir Untuk Anda
-
-Anda sekarang sudah siap 100% untuk merilis sihir ini!
-
-1.  Pastikan Anda sudah membuat akun di [npmjs.com](https://npmjs.com) dengan **username `elainaa`**.
-2.  Buka terminal di folder proyek Anda.
-3.  Login ke akun NPM Anda:
-    ```bash
-    npm login
-    ```
-4.  Publikasikan paket Anda ke dunia:
-    ```bash
-    npm publish --access public
-    ```
-
-Selesai! Paket `@elainaa/proxy` Anda akan tersedia untuk semua penyihir di seluruh dunia. ✨
+  Happy fetching!
+</p>
