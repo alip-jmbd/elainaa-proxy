@@ -2,20 +2,20 @@
   <img src="https://cdn.nefusoft.cloud/0rK13.png" alt="Elaina the Ashen Witch" width="200"/>
 </div>
 
-<h1 align="center">✨ @elaina/proxy - Gerbang Sihir Anda ke Dunia Web! ✨</h1>
+<h1 align="center">✨ @elainaa/proxy - Gerbang Sihir Anda ke Dunia Web! ✨</h1>
 
 <p align="center">
   <em>"Betul sekali, ini aku, Penyihir Abu-abu, Elaina. Dengan sedikit sihir dariku, tak ada lagi situs yang bisa menghalangimu."</em>
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@elaina/proxy"><img src="https://img.shields.io/npm/v/@elaina/proxy.svg" alt="NPM Version"></a>
-  <a href="https://www.npmjs.com/package/@elaina/proxy"><img src="https://img.shields.io/npm/dt/@elaina/proxy.svg" alt="NPM Downloads"></a>
+  <a href="https://www.npmjs.com/package/@elainaa/proxy"><img src="https://img.shields.io/npm/v/@elainaa/proxy.svg" alt="NPM Version"></a>
+  <a href="https://www.npmjs.com/package/@elainaa/proxy"><img src="https://img.shields.io/npm/dt/@elainaa/proxy.svg" alt="NPM Downloads"></a>
 </p>
 
 ---
 
-Selamat datang, petualang web! 🧙‍♀️ `@elaina/proxy` adalah sebuah pustaka sihir yang dirancang untuk membantu Anda melewati batasan-batasan di internet. Dengan tongkat sihir dari Nefu dan kekuatan Elaina, Anda dapat mengambil data dari situs manapun seolah-olah Anda sedang terbang bebas di atasnya.
+Selamat datang, petualang web! 🧙‍♀️ `@elainaa/proxy` adalah sebuah pustaka sihir yang dirancang untuk membantu Anda melewati batasan-batasan di internet. Dengan tongkat sihir dari Nefu dan kekuatan Elaina, Anda dapat mengambil data dari situs manapun seolah-olah Anda sedang terbang bebas di atasnya.
 
 ### 🌟 Fitur-Fitur Ajaib
 
@@ -29,7 +29,7 @@ Selamat datang, petualang web! 🧙‍♀️ `@elaina/proxy` adalah sebuah pusta
 Pasang tongkat sihir ini ke dalam proyek Anda melalui NPM:
 
 ```bash
-npm install @elaina/proxy
+npm install @elainaa/proxy
 ```
 
 ### 📖 Buku Mantra (Cara Penggunaan)
@@ -41,7 +41,7 @@ Elaina telah menyiapkan beberapa cara untuk merapal mantra, pilihlah yang paling
 Cara paling cepat dan langsung. Cukup impor dan panggil. Anda juga bisa memberikan opsi untuk memilih server spesifik.
 
 ```javascript
-import gatepass from '@elaina/proxy';
+import gatepass from '@elainaa/proxy';
 
 // Penggunaan paling dasar (otomatis menggunakan server US)
 const html1 = await gatepass('https://example.com');
@@ -58,7 +58,7 @@ console.log('Konten dari server EU15:', html2.substring(0, 100));
 Untuk para penyihir tingkat lanjut! Buat sebuah "klien" yang sudah dikonfigurasi untuk digunakan berulang kali. Sangat rapi dan terstruktur.
 
 ```javascript
-import { createGatePass } from '@elaina/proxy';
+import { createGatePass } from '@elainaa/proxy';
 
 // Buat klien sihir khusus untuk server US #7
 const usClient = createGatePass({ region: 'us', serverId: 7 });
@@ -75,7 +75,7 @@ console.log('Dua halaman berhasil diambil dengan klien yang sama!');
 Biarkan Elaina yang memilih server terbaik untuk Anda! Jika satu server gagal, dia akan otomatis mencoba server lain. Sangat kuat dan dapat diandalkan.
 
 ```javascript
-import gatepass from '@elaina/proxy';
+import gatepass from '@elainaa/proxy';
 
 try {
   // Pilih wilayah 'us', Elaina akan coba beberapa server acak jika perlu (default 2x coba lagi)
@@ -91,7 +91,7 @@ try {
 Untuk Anda yang sudah terbiasa dengan mantra `fetch` standar. Buat versi `fetch` yang sudah disuntik dengan sihir proxy.
 
 ```javascript
-import { createProxyFetch } from '@elaina/proxy';
+import { createProxyFetch } from '@elainaa/proxy';
 
 // Buat fungsi fetch versi proxy yang menargetkan server US #1
 const nefuFetch = createProxyFetch({ region: 'us', serverId: 1 });
@@ -118,4 +118,21 @@ Objek `options` yang bisa Anda gunakan:
 
 <p align="center">
   Sekarang, pergilah dan jelajahi dunia web tanpa batas! Jika Anda tersesat, ingatlah petualangan Elaina.
-</p>
+</p>````
+
+### Langkah Terakhir Untuk Anda
+
+Anda sekarang sudah siap 100% untuk merilis sihir ini!
+
+1.  Pastikan Anda sudah membuat akun di [npmjs.com](https://npmjs.com) dengan **username `elainaa`**.
+2.  Buka terminal di folder proyek Anda.
+3.  Login ke akun NPM Anda:
+    ```bash
+    npm login
+    ```
+4.  Publikasikan paket Anda ke dunia:
+    ```bash
+    npm publish --access public
+    ```
+
+Selesai! Paket `@elainaa/proxy` Anda akan tersedia untuk semua penyihir di seluruh dunia. ✨
