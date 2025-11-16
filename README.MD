@@ -36,47 +36,47 @@ npm install @elainaa/proxy
 
 Here are the different ways you can use the library, from simplest to most advanced.
 
-#### 1. Basic Usage (`gatepass`)
+#### 1. Basic Usage (`proxy`)
 
 The default export is a simple function that takes a URL and an optional options object. It returns the response body as a string.
 
 ```javascript
-import gatepass from '@elainaa/proxy';
+import proxy from '@elainaa/proxy';
 
 // 1. Simple fetch (uses default us1 server)
-const html1 = await gatepass('https://example.com');
+const html1 = await proxy('https://example.com');
 
 // 2. Fetch with specific server options
 const options = { region: 'eu', serverId: 15 };
-const html2 = await gatepass('https://example.com', options);
+const html2 = await proxy('https://example.com', options);
 ```
 
-#### 2. Client Factory (`createGatePass`)
+#### 2. Client Factory (`createProxyClient`)
 
 For applications making multiple requests with the same configuration, you can create a reusable client instance.
 
 ```javascript
-import { createGatePass } from '@elainaa/proxy';
+import { createProxyClient } from '@elainaa/proxy';
 
 // Create a client configured for the US server #7
-const usClient = createGatePass({ region: 'us', serverId: 7 });
+const usClient = createProxyClient({ region: 'us', serverId: 7 });
 
 // Reuse the client for multiple fetches
 const page1 = await usClient.fetch('https://example.com/page1');
 const page2 = await usClient.fetch('https://example.com/page2');
 ```
 
-#### 3. Smart Auto Mode (`gatepass.auto`)
+#### 3. Smart Auto Mode (`proxy.auto`)
 
 Let the library handle server selection and retries for you. It will randomly pick a server from the specified region and retry on failure.
 
 ```javascript
-import gatepass from '@elainaa/proxy';
+import proxy from '@elainaa/proxy';
 
 try {
   // Automatically select a random US server, with up to 3 retries on failure
   const options = { region: 'us', retries: 3 };
-  const html = await gatepass.auto('https:example.com', options);
+  const html = await proxy.auto('https:example.com', options);
   console.log('✅ Success!');
 } catch (error) {
   console.error('❌ Failed after multiple attempts:', error);

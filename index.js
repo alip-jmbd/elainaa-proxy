@@ -2,7 +2,7 @@ import {
     performProxyFetch
 } from './src/core.js';
 
-async function gatepass(url, options = {}) {
+async function proxy(url, options = {}) {
     const response = await performProxyFetch(url, options);
     return response.text();
 }
@@ -27,10 +27,10 @@ async function auto(url, options = {}) {
             lastError = error;
         }
     }
-    throw new Error(`Failed after ${config.retries} Retries. Last error: ${lastError.message}`);
+    throw new Error(`Failed after ${config.retries} retries. Last error: ${lastError.message}`);
 }
 
-function createGatePass(config) {
+function createProxyClient(config) {
     return {
         async fetch(url, options = {}) {
             const mergedOptions = { ...config,
@@ -51,10 +51,10 @@ function createProxyFetch(config) {
     };
 }
 
-gatepass.auto = auto;
+proxy.auto = auto;
 
-export default gatepass;
+export default proxy;
 export {
-    createGatePass,
+    createProxyClient,
     createProxyFetch
 };
