@@ -1,0 +1,28 @@
+{
+  "name": "@elainaa/proxy",
+  "version": "1.0.0",
+  "description": "Sebuah pustaka proxy ajaib untuk melewati batasan web dengan kekuatan sihir Elaina!",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alip-jmbd/-elainaa-proxy.git"
+  },
+  "keywords": [
+    "proxy",
+    "fetch",
+    "scrape",
+    "bypass",
+    "elaina",
+    "nefu"
+  ],
+  "author": "Nefu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alip-jmbd/-elainaa-proxy/issues"
+  },
+  "homepage": "https://github.com/alip-jmbd/-elainaa-proxy#readme"
+}
