@@ -76,7 +76,7 @@ import gatepass from '@elainaa/proxy';
 try {
   // Automatically select a random US server, with up to 3 retries on failure
   const options = { region: 'us', retries: 3 };
-  const html = await gatepass.auto('https://hanime.tv', options);
+  const html = await gatepass.auto('https:example.com', options);
   console.log('✅ Success!');
 } catch (error) {
   console.error('❌ Failed after multiple attempts:', error);
