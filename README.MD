@@ -10,7 +10,12 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@elainaa/proxy"><img src="https://img.shields.io/npm/v/@elainaa/proxy.svg" alt="NPM Version"></a>
-  <a href="https://www.npmjs.com/package/@elainaa/proxy"><img src="https://img.shields.io/npm/dt/@elainaa/proxy.svg" alt="NPM Downloads"></a>
+  <a href="https://www.npmjs.com/package/@elainaa/proxy">
+    <img src="https://img.shields.io/npm/dt/@elainaa/proxy?color=blueviolet&label=downloads&logo=npm" alt="NPM Downloads" />
+  </a>
+  <a href="https://whatsapp.com/channel/0029VbAwMQz5a240uWauNY13">
+    <img src="https://img.shields.io/badge/Join-WhatsApp%20Channel-25D366?logo=whatsapp&logoColor=white" alt="WhatsApp Ch" />
+  </a>
 </p>
 
 ---
